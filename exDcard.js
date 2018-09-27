@@ -4,6 +4,8 @@ let cheerio = require("cheerio")
 let download = require('image-downloader')
 // let Promise = require('bluebird')
 
+let board = '' //board name
+
 let date = new Date()
 let year = date.getYear()+1900
 let month = date.getMonth()+1 
@@ -38,7 +40,7 @@ var requestfun = (last)=>{
   if(last!=""){
     console.log("first")
     request({
-      url: "https://www.dcard.tw/_api/forums/sex/posts?",
+      url: "https://www.dcard.tw/_api/forums/"+board+"/posts?",
       mathod: "GET"
     }, 
     (e, r, b)=>{ 	 //e => error		r => request		b => body
@@ -53,7 +55,7 @@ var requestfun = (last)=>{
   else{
     console.log("other")
     request({
-      url: "https://www.dcard.tw/_api/forums/sex/posts?",
+      url: "https://www.dcard.tw/_api/forums/"+board+"/posts?",
       mathod: "GET"
     }, 
     (e, r, b)=>{ 	 //e => error		r => request		b => body

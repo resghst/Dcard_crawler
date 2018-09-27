@@ -4,6 +4,7 @@ var cheerio = require("cheerio")
 var download = require('image-downloader')
 var pageline = 1
 
+let board = '' //board name
 
 var d=new Date()
 var day=d.getDate()
@@ -14,7 +15,7 @@ if (!fs.existsSync('./img/'+ daynow)) fs.mkdirSync('./img/'+ daynow)
 
 
 request({
-	url: "https://www.dcard.tw/f/sex",
+	url: "https://www.dcard.tw/f/" + board,
 	mathod: "GET"
 }, 
 (e, r, b)=>{ 	 //e => error		r => request		b => body
@@ -54,7 +55,7 @@ var downfile = (imgurl)=>{
 }
 
 request({
-	url: "https://www.dcard.tw/f/sex?latest=true",
+	url: "https://www.dcard.tw/f/"+board+"?latest=true",
 	mathod: "GET"
 }, 
 (e, r, b)=>{ 	 //e => error		r => request		b => body
